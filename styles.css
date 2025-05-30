@@ -73,6 +73,11 @@ body {
   top: 0;
   left: 0;
   overflow-y: auto;
+  background: repeating-linear-gradient(to right,
+      hsla(0, 0%, 96%, 0.09) 0px,
+      hsla(0, 0%, 96%, 0.09) 1px,
+      transparent 1px,
+      transparent 60px);
 }
 
 .scroll-container {
