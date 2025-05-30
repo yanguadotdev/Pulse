@@ -46,7 +46,8 @@ span {
   height: 1lh;
 }
 
-.text__reveal span {
+.text__reveal span,
+.text__reveal--full>* {
   transform: translateY(120%);
   transition: .5s;
   display: inline-block;
@@ -105,14 +106,22 @@ body {
 }
 
 .slogan {
-  line-height: 1;
-  --ideal-size: 40;
   overflow: hidden;
-  opacity: .65;
+  height: min-content;
+  --ideal-size: 40;
   width: fit-content;
   margin: auto;
   margin-top: .5rem;
+}
+
+.slogan__text {
+  line-height: 1;
+  opacity: .65;
   border: 1px solid rgba(255, 255, 255, .35);
   padding: .25rem;
   border-radius: var(--rounded-sm);
+
+  /* Custom reveal */
+  transform: translateY(150%);
+  transition-delay: .5s;
 }
