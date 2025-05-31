@@ -60,6 +60,7 @@ paragraph.innerHTML = text
 
 // Video Section
 const videoSection = $('#video')
+const video = $('video')
 const headerLeft = $('.text__header__left')
 const headerRight = $('.text__header__right')
 
