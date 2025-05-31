@@ -164,6 +164,7 @@ section {
   font-size: clamp(1.25rem, calc(var(--ideal-size) / var(--vw) * var(--multiplier)), 3rem);
   line-height: 1.25;
   text-transform: uppercase;
+  color: rgba(255, 255, 255, .85);
 }
 
 .about__scroll-text b {
@@ -190,7 +191,6 @@ section {
 .main__video {
   position: absolute;
   object-fit: cover;
-  filter: brightness(.7);
 }
 
 .video__text__overlay {
@@ -204,4 +204,5 @@ section {
   font-size: clamp(1.5rem, 10cqi, 10rem);
   font-weight: 800;
   overflow: hidden;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
 }
