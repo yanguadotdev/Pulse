@@ -267,16 +267,20 @@ section {
 
 
 #cards {
+  --w-card: 100vw;
+  --h-section-card: 1200%;
+  --h-card-sticky: 20%;
+  /* 100%/12 cards */
   position: relative;
   width: 100%;
-  height: 600%;
+  height: var(--h-section-card);
 }
 
 .cards__sticky {
   position: sticky;
   top: 0;
   width: 100%;
-  height: 16.6%;
+  height: var(--h-card-sticky);
 }
 
 .slider__container {
@@ -294,7 +298,7 @@ section {
 
 .card {
   position: relative;
-  width: 50vw;
+  width: var(--w-card);
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -334,4 +338,14 @@ section {
 
 .end {
   justify-content: flex-end;
+}
+
+@media screen and (width > 800px) and (width < 960px) {
+  .image__container {
+    outline-offset: 12px;
+  }
+
+  .card {
+    padding: 2rem;
+  }
 }

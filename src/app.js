@@ -1,7 +1,5 @@
 import { $$, $, lerp } from './utils.js'
-import { createCards } from './cards.js'
-
-createCards()
+import { createCards, lengthCards } from './cards.js'
 
 const main = $('#main')
 
@@ -83,9 +81,32 @@ function animateVideo() {
 main.addEventListener('scroll', animateVideo)
 
 // Cards Section
+
 const cardsSection = $('#cards')
 const cardsSticky = $('.cards__sticky')
 const cardsSlider = $('.cards__slider')
+
+// ***** LOGIC FOR RESPONSIVE SLIDER *******
+let wCard = 100
+const MATHMEDIA = window.matchMedia('(min-width: 800px)')
+function handleMediaChange(e) {
+  if (e.matches) {
+    wCard = 50
+  } else {
+    wCard = 100
+  }
+  cardsSection.style.setProperty('--w-card', `${wCard}vw`)
+  cardsSection.style.setProperty('--h-section-card', `${wCard * lengthCards}%`)
+  const calc = 100 / (lengthCards / (100 / wCard))
+  cardsSection.style.setProperty('--h-card-sticky', `${calc}%`)
+}
+
+handleMediaChange(MATHMEDIA)
+MATHMEDIA.addEventListener('change', handleMediaChange)
+
+createCards()
+
+// ******************************************
 
 let projectTargetX = 0
 let projectCurrentX = 0
