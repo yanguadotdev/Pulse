@@ -115,6 +115,7 @@ section {
   gap: .5rem;
   font-size: 1.5rem;
   font-weight: 600;
+  font-family: var(--font-heading);
 }
 
 .logo img {
@@ -122,9 +123,19 @@ section {
 }
 
 #nav {
-  gap: 1rem;
+  gap: 1.5rem;
   text-transform: uppercase;
-  font-weight: 500
+  font-weight: 500;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+
+  &>a {
+    transition: color .3s;
+
+    &:hover {
+      color: var(--accent-color);
+    }
+  }
 }
 
 /* Hero */
@@ -231,9 +242,6 @@ section {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100%;
-  display: flex;
-  justify-content: center;
   font-size: clamp(1.5rem, 10cqi, 10rem);
   font-weight: 800;
   overflow: hidden;
