@@ -150,6 +150,22 @@ section {
   max-width: var(--max-width);
   flex-direction: column;
   gap: 5rem;
+  border-inline: 1px solid rgba(255, 255, 255, .15);
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(200px);
+    opacity: .75;
+  }
 }
 
 .hero__header {
