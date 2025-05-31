@@ -29,4 +29,8 @@ export function initTiltEffect({ target = null, constraint = 150 } = {}) {
   target.onmousemove = function (e) {
     transformElement(target, [e.clientX, e.clientY])
   }
+
+  target.addEventListener('mouseleave', () => {
+    target.style.transform = 'perspective(100px) rotateX(0deg) rotateY(0deg)'
+  })
 }
