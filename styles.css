@@ -263,3 +263,74 @@ section {
   overflow: hidden;
   text-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
 }
+
+
+
+#cards {
+  position: relative;
+  width: 100%;
+  height: 600%;
+}
+
+.cards__sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 16.6%;
+}
+
+.slider__container {
+  position: relative;
+  overflow: hidden;
+}
+
+.cards__slider {
+  height: 100%;
+  display: flex;
+  width: max-content;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.card {
+  position: relative;
+  width: 50vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 4rem;
+}
+
+.image__container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  outline: 2px solid rgba(255, 255, 255, .1);
+  border-radius: .005rem;
+  outline-offset: 16px;
+  background-color: #1a1a1a;
+}
+
+.card__image {
+  border: 1px solid rgba(255, 255, 255, .15);
+  border-radius: .5rem;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: grayscale(50%);
+}
+
+.start {
+  justify-content: flex-start;
+}
+
+.mid {
+  justify-content: center;
+}
+
+.end {
+  justify-content: flex-end;
+}

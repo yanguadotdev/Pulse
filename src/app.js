@@ -1,4 +1,7 @@
-import { $$, $ } from './utils.js'
+import { $$, $, lerp } from './utils.js'
+import { createCards } from './cards.js'
+
+createCards()
 
 const main = $('#main')
 
@@ -78,3 +81,56 @@ function animateVideo() {
 }
 
 main.addEventListener('scroll', animateVideo)
+
+// Cards Section
+const cardsSection = $('#cards')
+const cardsSticky = $('.cards__sticky')
+const cardsSlider = $('.cards__slider')
+
+let projectTargetX = 0
+let projectCurrentX = 0
+
+let percentages = {
+  small: 700,
+  medium: 540,
+  large: 540
+}
+
+let limit =
+  window.innerWidth <= 600
+    ? percentages.small
+    : window.innerWidth <= 1100
+    ? percentages.medium
+    : percentages.large
+
+function setLimits() {
+  limit =
+    window.innerWidth <= 600
+      ? percentages.small
+      : window.innerWidth <= 1100
+      ? percentages.medium
+      : percentages.large
+}
+
+window.addEventListener('resize', setLimits)
+
+function animateCards() {
+  const rect = cardsSticky.getBoundingClientRect()
+
+  // Only animate if it is within the viewport
+  if (rect.bottom < 0 || rect.top > window.innerHeight) return
+
+  let offsetTop = cardsSticky.parentElement.offsetTop
+  let percentage = ((main.scrollTop - offsetTop) / window.innerHeight) * 100
+  percentage = percentage < 0 ? 0 : percentage > limit ? limit : percentage
+  projectTargetX = percentage
+  projectCurrentX = lerp(projectCurrentX, projectTargetX, 0.1)
+  cardsSlider.style.transform = `translate3d(${-projectCurrentX}vw, 0, 0)`
+}
+
+function animate() {
+  animateCards()
+  requestAnimationFrame(animate)
+}
+
+animate()
