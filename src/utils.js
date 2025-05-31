@@ -5,7 +5,7 @@ export function lerp(start, end, t) {
   return start * (1 - t) + end * t
 }
 
-export function initTiltEffect({ target = null, constraint = 150 } = {}) {
+export function initTiltEffect({ target = null, constraint = 200 } = {}) {
   function transforms(x, y) {
     let box = target.getBoundingClientRect()
     let calcX = -(y - box.y - box.height / 2) / constraint

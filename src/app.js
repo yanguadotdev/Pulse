@@ -111,27 +111,16 @@ createCards()
 let projectTargetX = 0
 let projectCurrentX = 0
 
-let percentages = {
-  small: 700,
-  medium: 540,
-  large: 540
-}
-
-let limit =
-  window.innerWidth <= 600
-    ? percentages.small
-    : window.innerWidth <= 1100
-    ? percentages.medium
-    : percentages.large
+let limit
 
 function setLimits() {
   limit =
-    window.innerWidth <= 600
-      ? percentages.small
-      : window.innerWidth <= 1100
-      ? percentages.medium
-      : percentages.large
+    window.innerWidth <= 800
+      ? lengthCards * 100
+      : (lengthCards / (100 / wCard)) * 100
 }
+
+setLimits()
 
 window.addEventListener('resize', setLimits)
 
