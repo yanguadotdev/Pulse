@@ -1,4 +1,4 @@
-import { $$ } from './utils.js'
+import { $$, $ } from './utils.js'
 
 // Text Reveal Animation
 const textReveals = [...$$('.text__reveal'), ...$$('.text__reveal--full')]
@@ -38,3 +38,20 @@ textReveals.forEach((text) => {
   }
   observer.observe(text)
 })
+
+// About section Animation
+const text = `There’s a moment right before you quit when everything is decided.
+No epic music. No cheering crowd.
+Just you… and your choice.
+
+At <b>Pulse</b>, we believe <b>discipline isn’t born — it’s trained</b>.
+We’re not here to scream “You got this!”
+We’re the steady rhythm that reminds you who you’ve chosen to become,
+even when no one’s watching.
+
+We don’t celebrate perfection.
+We celebrate <b>consistency</b>.
+Every step. Every habit. Every pulse.`
+
+const paragraph = $('.about__scroll-text')
+paragraph.innerHTML = text
