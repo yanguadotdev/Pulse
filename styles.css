@@ -309,6 +309,7 @@ section {
   border-radius: .005rem;
   outline-offset: 16px;
   background-color: #1a1a1a;
+  transition: transform .2s linear;
 }
 
 .card__image {

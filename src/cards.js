@@ -1,4 +1,4 @@
-import { $ } from './utils.js'
+import { $, initTiltEffect } from './utils.js'
 
 const cards = [
   {
@@ -68,9 +68,10 @@ const createCards = () => {
   cards.forEach((card) => {
     let panel = document.createElement('article')
     panel.classList.add('card', `${card.pos}`)
-
+    
     let imageContainer = document.createElement('div')
     imageContainer.className = 'image__container'
+    initTiltEffect({ target: imageContainer })
 
     let image = document.createElement('img')
     image.classList.add('card__image')
@@ -85,7 +86,4 @@ const createCards = () => {
 
 const lengthCards = cards.length
 
-export {
-  createCards,
-  lengthCards
-}
+export { createCards, lengthCards }
