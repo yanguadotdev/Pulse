@@ -411,6 +411,7 @@ section {
   place-content: center;
   padding-inline: 1rem;
 }
+
 .clock__container {
   position: relative;
   width: min(400px, 80%);
@@ -493,5 +494,105 @@ section {
     display: block;
     font-size: clamp(3rem, calc(var(--ideal-size) / var(--vw) * var(--multiplier)), 10rem);
     transition-delay: .3s;
+  }
+}
+
+
+
+/* Footer section */
+#footer {
+  overflow: hidden;
+  height: 50%;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-between;
+  border-top: 2px solid var(--transparent-white);
+}
+
+@media screen and (width > 640px) {
+  #footer {
+    height: 75%;
+  }
+}
+@media screen and (width > 960px) {
+  #footer {
+    height: 100%;
+  }
+}
+
+.footer__container {
+  --ideal-size: 500;
+  perspective: 1000px;
+  text-align: center;
+}
+
+.footer__text {
+  height: 1lh;
+  transform-style: preserve-3d;
+  font-family: var(--font-heading);
+  transform: rotateX(55deg);
+  position: relative;
+  line-height: .85;
+  width: max-content;
+  margin-inline: auto;
+
+  color: var(--accent-color);
+
+  &::after,
+  &::before {
+    transform-origin: bottom;
+    content: '';
+    position: absolute;
+    height: 200px;
+    width: 2px;
+    background-color: var(--transparent-white);
+    transform: rotateX(-55deg) translateZ(-40px);
+    bottom: 100%;
+  }
+
+  &::before {
+    left: 0;
+  }
+
+  &::after {
+    right: 0;
+  }
+}
+
+.footer__text:nth-child(2) {
+  color: white;
+  overflow: hidden;
+  transition-delay: .5s;
+  transform: rotateX(0deg);
+
+  &::before,
+  &::after {
+    display: none;
+  }
+}
+
+.footer__owner {
+  font-family: var(--font-heading);
+  width: 100%;
+  padding: 2rem;
+  --ideal-size: 25;
+  font-size: clamp(1rem, calc(var(--ideal-size) / var(--vw) * var(--multiplier)), 2rem);
+  border-block: 2px solid rgba(255, 255, 255, .075);
+  letter-spacing: .025em;
+  color: rgba(255, 255, 255, .5);
+
+  &>p {
+    overflow: hidden;
+    transition-delay: .5s;
+  }
+
+  & a {
+    color: white;
+    text-decoration: wavy underline;
+    padding-block: 4px;
+
+    &:hover {
+      color: var(--accent-color);
+    }
   }
 }
