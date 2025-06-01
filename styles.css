@@ -17,7 +17,6 @@
 
   --vw: 1920;
   --multiplier: 100vw;
-  --font-fluid: calc(var(--ideal-size) / var(--vw) * var(--multiplier));
 
   --accent-color: #C3FF00;
   --transparent-white: rgba(255, 255, 255, .15);
@@ -392,8 +391,97 @@ section {
     animation: animate .5s forwards;
   }
 }
+
 @keyframes animate {
   to {
     letter-spacing: .05em;
+  }
+}
+
+
+
+/* Clock section */
+#clock {
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding-inline: 1rem;
+}
+.clock__container {
+  position: relative;
+  width: min(400px, 80%);
+  aspect-ratio: 1/1;
+  overflow: hidden;
+}
+
+.clock__face {
+  border: 2px solid rgba(255, 255, 255, .35);
+  box-shadow: inset 0 0 0 4px var(--transparent-white);
+  border-radius: 50%;
+  position: relative;
+}
+
+.hand {
+  width: 2px;
+  background: white;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform-origin: bottom;
+  transform: rotate(90deg);
+  transition: all 0.05s ease-in-out;
+}
+
+.hour-hand {
+  height: 15%;
+}
+
+.minute-hand {
+  height: 30%;
+}
+
+.center-dot {
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.clock__labels {
+  position: absolute;
+  inset: 0;
+}
+
+.clock__labels>span {
+  position: absolute;
+  color: white;
+  font-family: var(--font-heading);
+  transform: rotate(calc(var(--i) * 30deg));
+  text-align: center;
+  inset: 16px;
+  letter-spacing: .05em;
+
+  &>span {
+    transform: rotate(calc(var(--i) * -30deg));
+  }
+}
+
+.clock__quote {
+  --ideal-size: 50;
+  font-size: clamp(1.5rem, calc(var(--ideal-size) / var(--vw) * var(--multiplier)), 7rem);
+  color: rgba(255, 255, 255, .35);
+  font-family: var(--font-heading);
+  line-height: 1;
+  overflow: hidden;
+
+  &>span {
+    color: #C3FF00;
+    --ideal-size: 100;
+    display: block;
+    font-size: clamp(3rem, calc(var(--ideal-size) / var(--vw) * var(--multiplier)), 10rem);
+    transition-delay: .3s;
   }
 }

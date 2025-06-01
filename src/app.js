@@ -162,6 +162,18 @@ function scrollQuote() {
   })
 }
 
+// Clock Animation
+const containerLabels = $('.clock__labels')
+const fragment = document.createDocumentFragment()
+Array.from({ length: 12 }).map((_, i) => {
+  const span = document.createElement('span')
+  span.style.setProperty('--i', i)
+  span.innerHTML = `<span>NOW</span>`
+  fragment.appendChild(span)
+})
+containerLabels.append(fragment)
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 main.addEventListener('scroll', () => {
   animateVideo()
   scrollQuote()
