@@ -1,4 +1,4 @@
-import { $, initTiltEffect } from './utils.js'
+import { $, initMouseParallax, initTiltEffect } from './utils.js'
 
 const cards = [
   {
@@ -68,16 +68,20 @@ const createCards = () => {
   cards.forEach((card) => {
     let panel = document.createElement('article')
     panel.classList.add('card', `${card.pos}`)
-    
+
+    let span = document.createElement('span')
+    span.innerText = 'VIEW'
+
     let imageContainer = document.createElement('div')
-    imageContainer.className = 'image__container'
+    imageContainer.className = 'image__container box-center'
     initTiltEffect({ target: imageContainer })
+    initMouseParallax(imageContainer, span, 2)
 
     let image = document.createElement('img')
     image.classList.add('card__image')
     image.src = card.image
 
-    imageContainer.appendChild(image)
+    imageContainer.append(image, span)
     panel.append(imageContainer)
 
     slider.appendChild(panel)

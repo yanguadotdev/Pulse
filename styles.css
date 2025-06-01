@@ -20,6 +20,7 @@
   --font-fluid: calc(var(--ideal-size) / var(--vw) * var(--multiplier));
 
   --accent-color: #C3FF00;
+  --transparent-white: rgba(255, 255, 255, .15);
   color-scheme: dark light;
 }
 
@@ -107,7 +108,7 @@ section {
 .header__container {
   padding: .5rem 1rem;
   border-radius: var(--rounded-sm);
-  border: 1px solid rgba(255, 255, 255, .15);
+  border: 1px solid var(--transparent-white);
   justify-content: space-between;
 }
 
@@ -150,7 +151,7 @@ section {
   max-width: var(--max-width);
   flex-direction: column;
   gap: 5rem;
-  border-inline: 1px solid rgba(255, 255, 255, .15);
+  border-inline: 1px solid var(--transparent-white);
   position: relative;
 
   &::before {
@@ -210,7 +211,7 @@ section {
 
 .about__container {
   min-height: 100vh;
-  border: 1px solid rgba(255, 255, 255, .15);
+  border: 1px solid var(--transparent-white);
   border-radius: var(--rounded-sm);
   position: relative;
   overflow: hidden;
@@ -314,10 +315,24 @@ section {
   outline-offset: 16px;
   background-color: #1a1a1a;
   transition: transform .2s linear;
+  cursor: pointer;
+}
+
+.image__container span {
+  position: absolute;
+  display: inline-block;
+  padding: .5rem 1.5rem;
+  border-radius: 100vw;
+  background-color: rgba(0, 0, 0, .15);
+  border: 2px solid rgba(255, 255, 255, .25);
+  backdrop-filter: blur(10px);
+  color: var(--accent-color);
+  transition: scale .2s;
+  scale: 0;
 }
 
 .card__image {
-  border: 1px solid rgba(255, 255, 255, .15);
+  border: 1px solid var(--transparent-white);
   border-radius: .5rem;
   overflow: hidden;
   aspect-ratio: 16 / 9;

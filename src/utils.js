@@ -34,3 +34,22 @@ export function initTiltEffect({ target = null, constraint = 200 } = {}) {
     target.style.transform = 'perspective(100px) rotateX(0deg) rotateY(0deg)'
   })
 }
+
+export function initMouseParallax(container, target, depth) {
+  if (window.matchMedia('(hover: hover)').matches) {
+    container.addEventListener('mousemove', (e) => {
+      const moveX = e.clientX / container.getBoundingClientRect().width - 0.5
+      const moveY = e.clientY / container.getBoundingClientRect().height - 0.5
+
+      const translateX = moveX * depth * 10
+      const translateY = moveY * depth * 10
+
+      target.style.transform = `translate(${translateX}px, ${translateY}px)`
+      target.style.scale = '1'
+    })
+
+    container.addEventListener('mouseleave', (e) => {
+      target.style.scale = '0'
+    })
+  }
+}
