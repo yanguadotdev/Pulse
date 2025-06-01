@@ -38,8 +38,9 @@ export function initTiltEffect({ target = null, constraint = 200 } = {}) {
 export function initMouseParallax(container, target, depth) {
   if (window.matchMedia('(hover: hover)').matches) {
     container.addEventListener('mousemove', (e) => {
-      const moveX = e.clientX / container.getBoundingClientRect().width - 0.5
-      const moveY = e.clientY / container.getBoundingClientRect().height - 0.5
+      const { width, height } = container.getBoundingClientRect()
+      const moveX = e.offsetX / width - 0.5
+      const moveY = e.offsetY / height - 0.5
 
       const translateX = moveX * depth * 10
       const translateY = moveY * depth * 10
@@ -49,6 +50,7 @@ export function initMouseParallax(container, target, depth) {
     })
 
     container.addEventListener('mouseleave', (e) => {
+      target.style.transform = 'translate(0, 0)'
       target.style.scale = '0'
     })
   }
