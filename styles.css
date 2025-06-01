@@ -329,6 +329,7 @@ section {
   color: var(--accent-color);
   transition: scale .2s;
   scale: 0;
+  pointer-events: none;
 }
 
 .card__image {

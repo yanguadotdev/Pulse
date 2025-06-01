@@ -74,12 +74,12 @@ const createCards = () => {
 
     let imageContainer = document.createElement('div')
     imageContainer.className = 'image__container box-center'
-    initTiltEffect({ target: imageContainer })
-    initMouseParallax(imageContainer, span, 2)
-
+    
     let image = document.createElement('img')
     image.classList.add('card__image')
     image.src = card.image
+    initTiltEffect({ target: imageContainer })
+    initMouseParallax(image, span, 4)
 
     imageContainer.append(image, span)
     panel.append(imageContainer)
