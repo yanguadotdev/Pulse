@@ -175,21 +175,26 @@ containerLabels.append(fragment)
 
 const hourHand = document.querySelector('.hour-hand')
 const minuteHand = document.querySelector('.minute-hand')
+const secondHand = document.querySelector('.second-hand')
 
 function setTime() {
   const now = new Date()
   const hours = now.getHours() % 12
   const minutes = now.getMinutes()
+  const seconds = now.getSeconds()
 
   const hourDeg = (360 / 12) * hours + (30 / 60) * minutes
-  const minuteDeg = (360 / 60) * minutes
+  const minuteDeg = (360 / 60) * minutes + (6 / 60) * seconds
+  const secondDeg = (360 / 60) * seconds
 
   hourHand.style.transform = `rotate(${hourDeg}deg)`
   minuteHand.style.transform = `rotate(${minuteDeg}deg)`
+  secondHand.style.transform = `rotate(${secondDeg}deg)`
 }
 
 setInterval(setTime, 1000)
 setTime()
+
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 main.addEventListener('scroll', () => {

@@ -433,10 +433,15 @@ section {
 }
 
 .hour-hand {
-  height: 15%;
+  height: 12%;
 }
 
 .minute-hand {
+  height: 24%;
+}
+
+.second-hand {
+  background: var(--accent-color);
   height: 30%;
 }
 
@@ -479,7 +484,7 @@ section {
   overflow: hidden;
 
   &>span {
-    color: #C3FF00;
+    color: var(--accent-color);
     --ideal-size: 100;
     display: block;
     font-size: clamp(3rem, calc(var(--ideal-size) / var(--vw) * var(--multiplier)), 10rem);
