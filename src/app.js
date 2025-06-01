@@ -142,25 +142,30 @@ const leftTexts = $$('.text__left')
 const rightTexts = $$('.text__right')
 
 function scrollQuote() {
-  let { bottom } = quoteContainer.getBoundingClientRect()
+  let { bottom, top } = quoteContainer.getBoundingClientRect()
   let textTrans = bottom - window.innerHeight
   textTrans = textTrans < 0 ? 0 : textTrans
 
+  const rotation = textTrans * 0.05
+  const visibleAmount = window.innerHeight - top
+  const maxVisible = window.innerHeight * 1
+  const opacity = Math.min(Math.max(visibleAmount / maxVisible, 0), 1)
+
   leftTexts.forEach((leftText) => {
-    leftText.style.transform = `translateX(${-textTrans}px)`
+    leftText.style.transform = `translateX(${-textTrans}px) rotate(${rotation}deg)`
+    leftText.style.opacity = opacity
   })
 
   rightTexts.forEach((rightText) => {
-    rightText.style.transform = `translateX(${textTrans}px)`
+    rightText.style.transform = `translateX(${textTrans}px) rotate(-${rotation}deg)`
+    rightText.style.opacity = opacity
   })
 }
-
 
 main.addEventListener('scroll', () => {
   animateVideo()
   scrollQuote()
 })
-
 
 function animate() {
   animateCards()
