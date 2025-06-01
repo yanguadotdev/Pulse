@@ -511,12 +511,13 @@ section {
 
 @media screen and (width > 640px) {
   #footer {
-    height: 75%;
+    min-height: 75%;
+    height: auto;
   }
 }
 @media screen and (width > 960px) {
   #footer {
-    height: 100%;
+    min-height: 100%;
   }
 }
 
