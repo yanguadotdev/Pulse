@@ -365,3 +365,35 @@ section {
     padding: 2rem;
   }
 }
+
+
+
+/* Quote section */
+
+.quote__container {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  height: 100%;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.quote__container span {
+  line-height: 1;
+  will-change: transform;
+  font-size: 4rem;
+  letter-spacing: .0em;
+  cursor: default;
+
+  &:nth-child(even) {
+    color: var(--accent-color);
+  }
+
+  &:hover {
+    animation: animate .5s forwards;
+  }
+}
+@keyframes animate {
+  to {
+    letter-spacing: .05em;
+  }
+}

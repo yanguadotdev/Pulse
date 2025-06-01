@@ -78,8 +78,6 @@ function animateVideo() {
   headerRight.style.transform = `translate(${textTrans}px)`
 }
 
-main.addEventListener('scroll', animateVideo)
-
 // Cards Section
 
 const cardsSection = $('#cards')
@@ -137,6 +135,32 @@ function animateCards() {
   projectCurrentX = lerp(projectCurrentX, projectTargetX, 0.1)
   cardsSlider.style.transform = `translate3d(${-projectCurrentX}vw, 0, 0)`
 }
+
+// Quote Animation
+const quoteContainer = $('.quote__container')
+const leftTexts = $$('.text__left')
+const rightTexts = $$('.text__right')
+
+function scrollQuote() {
+  let { bottom } = quoteContainer.getBoundingClientRect()
+  let textTrans = bottom - window.innerHeight
+  textTrans = textTrans < 0 ? 0 : textTrans
+
+  leftTexts.forEach((leftText) => {
+    leftText.style.transform = `translateX(${-textTrans}px)`
+  })
+
+  rightTexts.forEach((rightText) => {
+    rightText.style.transform = `translateX(${textTrans}px)`
+  })
+}
+
+
+main.addEventListener('scroll', () => {
+  animateVideo()
+  scrollQuote()
+})
+
 
 function animate() {
   animateCards()
