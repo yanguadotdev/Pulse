@@ -58,6 +58,33 @@ Every step. Every habit. Every pulse.`
 
 const paragraph = $('.about__scroll-text')
 paragraph.innerHTML = text
+const words = paragraph.innerHTML.match(/<b>.*?<\/b>|\S+/g)
+let htmlStr = ''
+words.forEach((el) => {
+  const isBold = el.startsWith('<b>')
+  htmlStr += (isBold ? el : `<span>${el}</span>`) + ' '
+})
+
+paragraph.innerHTML = htmlStr
+console.log()
+const spans = [...paragraph.querySelectorAll('span')]
+function revealSpan() {
+  for (let i = 0; i < spans.length; i++) {
+    if (
+      spans[i].parentElement.getBoundingClientRect().top <
+      window.innerHeight * .66
+    ) {
+      let { left, top } = spans[i].getBoundingClientRect()
+      top = top - window.innerHeight * 0.66
+      let opacityValue =
+        1 - (top * 0.01 + left * 0.001) < 0.1
+          ? 0.1
+          : 1 - (top * 0.01 + left * 0.001).toFixed(3)
+      opacityValue = opacityValue > 1 ? 1 : opacityValue.toFixed(3)
+      spans[i].style.opacity = opacityValue
+    }
+  }
+}
 
 // Video Section
 const videoSection = $('#video')
@@ -195,13 +222,13 @@ function setTime() {
 setInterval(setTime, 1000)
 setTime()
 
-
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 main.addEventListener('scroll', () => {
   animateVideo()
   scrollQuote()
+  revealSpan()
 })
-
+revealSpan()
 function animate() {
   animateCards()
   requestAnimationFrame(animate)

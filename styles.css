@@ -220,11 +220,15 @@ section {
   text-align: center;
   width: min(800px, 80%);
   text-wrap: balance;
-  --ideal-size: 40;
-  font-size: clamp(1.25rem, calc(var(--ideal-size) / var(--vw) * var(--multiplier)), 3rem);
+  --ideal-size: 45;
+  font-size: clamp(1.35rem, calc(var(--ideal-size) / var(--vw) * var(--multiplier)), 3rem);
   line-height: 1.25;
   text-transform: uppercase;
   color: rgba(255, 255, 255, .85);
+}
+
+.about__scroll-text span {
+  opacity: .1;
 }
 
 .about__scroll-text b {
