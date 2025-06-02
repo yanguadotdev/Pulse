@@ -245,7 +245,7 @@ section {
 #video {
   display: flex;
   justify-content: center;
-  height: 200%;
+  height: 200vh;
 }
 
 .video__sticky {
