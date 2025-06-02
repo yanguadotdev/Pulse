@@ -380,6 +380,7 @@ section {
   height: 100%;
   flex-direction: column;
   overflow: hidden;
+  font-weight: 500;
 }
 
 .quote__container span {
