@@ -72,7 +72,7 @@ function revealSpan() {
   for (let i = 0; i < spans.length; i++) {
     if (
       spans[i].parentElement.getBoundingClientRect().top <
-      window.innerHeight * .66
+      window.innerHeight * 0.66
     ) {
       let { left, top } = spans[i].getBoundingClientRect()
       top = top - window.innerHeight * 0.66
@@ -136,13 +136,13 @@ createCards()
 let projectTargetX = 0
 let projectCurrentX = 0
 
-let limit
+let limit = null
 
 function setLimits() {
   limit =
     window.innerWidth <= 800
-      ? lengthCards * 100
-      : (lengthCards / (100 / wCard)) * 100
+      ? lengthCards * 100 - 100
+      : (lengthCards / (100 / wCard)) * 100 - 100
 }
 
 setLimits()
